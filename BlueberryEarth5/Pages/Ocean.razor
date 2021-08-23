@@ -1,0 +1,22 @@
+﻿@page "/ocean"
+@inject AppState AppState
+@implements IDisposable
+
+<h3>Ocean</h3>
+
+<p>Blueberry Mush: @AppState.GetResourceValue(ResourceType.BlueberryMush)</p>
+<button class="btn btn-primary" @onclick="Mush">Mush</button>
+
+@code {
+	protected override void OnInitialized()
+	{
+		AppState.OnChange += StateHasChanged;
+	}
+
+	public void Dispose() => AppState.OnChange -= StateHasChanged;
+
+	protected void Mush()
+	{
+		AppState.ModifyResourceValue(ResourceType.BlueberryMush, 1);
+	}
+}

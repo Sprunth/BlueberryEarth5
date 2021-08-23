@@ -1,0 +1,20 @@
+﻿@page "/counter"
+@inject AppState AppState
+@implements IDisposable
+
+<h1>Counter</h1>
+
+<p>Current count: @AppState.CounterValue</p>
+
+<button class="btn btn-primary" @onclick="Increment">Click me</button>
+
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose() => AppState.OnChange -= StateHasChanged;
+
+    protected void Increment() => AppState.IncrementCounter();
+}
