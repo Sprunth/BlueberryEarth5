@@ -30,8 +30,10 @@ namespace BlueberryEarth5.Services
             if (!_updateRunning)
             {
                 // Initiate a Timer
-                _updateTimer = new Timer();
-                _updateTimer.Interval = 1000;  // ms
+                _updateTimer = new Timer
+                {
+                    Interval = 97  // ms
+                };
                 _updateTimer.Elapsed += OnUpdateTimerTrigger;
                 _updateTimer.AutoReset = true;
                 _updateTimer.Enabled = true;
@@ -41,8 +43,10 @@ namespace BlueberryEarth5.Services
             if (!_drawRunning)
             {
                 // Initiate a Timer
-                _drawTimer = new Timer();
-                _drawTimer.Interval = 5000;  // ms
+                _drawTimer = new Timer
+                {
+                    Interval = 111  // ms
+                };
                 _drawTimer.Elapsed += OnDrawTimerTrigger;
                 _drawTimer.AutoReset = true;
                 _drawTimer.Enabled = true;
@@ -53,7 +57,7 @@ namespace BlueberryEarth5.Services
         void OnUpdateTimerTrigger(object source, ElapsedEventArgs e)
         {
             // Execute required job
-            appState.IncrementCounter();
+            
             // Notify any subscribers to the event
             OnJobExecuted();
         }
