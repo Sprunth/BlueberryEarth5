@@ -5,12 +5,16 @@
 <h3>Ocean</h3>
 
 <p>Blueberry Mush: @AppState.GetResourceValue(ResourceType.BlueberryMush)</p>
-<Button Color="Color.Primary" Clicked="Mush">Mush</Button>
+<button class="btn btn-primary" @onclick="Mush">Mush</button>
 
 <h3>Buildings</h3>
 
 <p>Blueberry Bricks: @AppState.GetResourceValue(ResourceType.BlueberryBrick)</p>
-<Button Color="Color.Primary" Clicked="MakeBrick">Make Brick</Button>
+<button class="btn btn-primary" @onclick="MakeBrick">Make Brick</button>
+
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
 
 @code {
 	protected override void OnInitialized()
