@@ -5,7 +5,12 @@
 <h3>Ocean</h3>
 
 <p>Blueberry Mush: @AppState.GetResourceValue(ResourceType.BlueberryMush)</p>
-<button class="btn btn-primary" @onclick="Mush">Mush</button>
+<RadzenButton Click="Mush">Mush</RadzenButton>
+
+<h3>Buildings</h3>
+
+<p>Blueberry Bricks: @AppState.GetResourceValue(ResourceType.BlueberryBrick)</p>
+<RadzenButton Click="MakeBrick">Make Brick</RadzenButton>
 
 @code {
 	protected override void OnInitialized()
@@ -17,6 +22,14 @@
 
 	protected void Mush()
 	{
+
 		AppState.ModifyResourceValue(ResourceType.BlueberryMush, 1);
 	}
+
+	protected void MakeBrick()
+	{
+		AppState.ModifyResourceValue(ResourceType.BlueberryBrick, 1);
+		AppState.ModifyResourceValue(ResourceType.BlueberryMush, -5);
+	}
+
 }
