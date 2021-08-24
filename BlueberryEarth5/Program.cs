@@ -10,6 +10,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
+using Blazorise;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
+
 namespace BlueberryEarth5
 {
     public class Program
@@ -23,7 +27,14 @@ namespace BlueberryEarth5
                 .AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) })
                 .AddSingleton(typeof(AppState))
                 .AddBlazoredLocalisation()
-                .AddSingleton<PeriodicExecutor>();
+                .AddSingleton<PeriodicExecutor>()
+                .AddBlazorise(options =>
+                {
+                    options.ChangeTextOnKeyPress = true;
+                })
+                .AddBootstrapProviders()
+                .AddFontAwesomeIcons()
+                ;
             await builder.Build().RunAsync();
         }
     }

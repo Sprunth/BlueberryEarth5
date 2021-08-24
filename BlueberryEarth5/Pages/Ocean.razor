@@ -5,12 +5,12 @@
 <h3>Ocean</h3>
 
 <p>Blueberry Mush: @AppState.GetResourceValue(ResourceType.BlueberryMush)</p>
-<RadzenButton Click="Mush">Mush</RadzenButton>
+<Button Color="Color.Primary" Clicked="Mush">Mush</Button>
 
 <h3>Buildings</h3>
 
 <p>Blueberry Bricks: @AppState.GetResourceValue(ResourceType.BlueberryBrick)</p>
-<RadzenButton Click="MakeBrick">Make Brick</RadzenButton>
+<Button Color="Color.Primary" Clicked="MakeBrick">Make Brick</Button>
 
 @code {
 	protected override void OnInitialized()

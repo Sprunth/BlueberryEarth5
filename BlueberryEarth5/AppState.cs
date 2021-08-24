@@ -14,8 +14,6 @@ namespace BlueberryEarth5
     {
         protected Dictionary<ResourceType, long> resources = new();
 
-        public int CounterValue { get; private set; }
-
         public event Action OnChange;
 
         private bool Dirty = false;
@@ -31,19 +29,11 @@ namespace BlueberryEarth5
 
         public void RedrawIfNeeded()
         {
-            Console.WriteLine("Drawing!");
             if (Dirty)
             {
                 OnChange?.Invoke();
             }
             Dirty = false;
-        }
-
-        public void IncrementCounter()
-        {
-            Console.WriteLine("Incrementing!");
-            CounterValue += 1;
-            MarkDirty();
         }
 
         public long GetResourceValue(ResourceType rt)
