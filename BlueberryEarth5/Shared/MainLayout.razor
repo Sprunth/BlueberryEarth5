@@ -2,15 +2,35 @@
 @using BlueberryEarth5.Services;
 
 @inject PeriodicExecutor PeriodicExecutor
-<div class="page">
+	<!-- Sidebar end -->
+	<!-- Sticky alerts (toasts), empty container -->
+	<!-- Reference: https://www.gethalfmoon.com/docs/sticky-alerts-toasts -->
+	<div class="sticky-alerts"></div>
 
-	<div class="container">
-		<div class="content">
-			@Body
+	<nav class="navbar">
+		<!-- Navbar content (with toggle sidebar button) -->
+		<div class="navbar-content">
+			<button class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+				<span class="sr-only">Toggle sidebar</span> <!-- sr-only = show only on screen readers -->
+			</button>
+		</div>
+	</nav>
+
+	<!-- Sidebar overlay -->
+	<div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
+
+	<Sidebar />
+
+	<!-- Content wrapper start -->
+	<div class="content-wrapper">
+		<div class="container">
+			<div class="content">
+				@Body
+			</div>
 		</div>
 	</div>
-
-</div>
+	<!-- Content wrapper end -->
 
 @code {
 	protected override void OnInitialized()
