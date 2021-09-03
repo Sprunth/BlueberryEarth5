@@ -32,7 +32,7 @@ namespace BlueberryEarth5.Services
                 // Initiate a Timer
                 _updateTimer = new Timer
                 {
-                    Interval = 97  // ms
+                    Interval = 1001  // ms
                 };
                 _updateTimer.Elapsed += OnUpdateTimerTrigger;
                 _updateTimer.AutoReset = true;
@@ -57,6 +57,8 @@ namespace BlueberryEarth5.Services
         void OnUpdateTimerTrigger(object source, ElapsedEventArgs e)
         {
             // Execute required job
+            var musherCount = appState.GetResourceValue(ResourceType.BlueberryMusher);
+            appState.ModifyResourceValue(ResourceType.BlueberryMush, 1 * musherCount);
             
             // Notify any subscribers to the event
             OnJobExecuted();

@@ -7,7 +7,7 @@ namespace BlueberryEarth5
 {
     public enum ResourceType
     {
-        BlueberryMush, BlueberryBrick
+        BlueberryMush, BlueberryBrick, BlueberryMusher
     }
 
     public class AppState
